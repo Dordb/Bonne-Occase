@@ -1,0 +1,57 @@
+* {
+    color: #DBDBDB;
+}
+
+.control-panel {
+    text-align: center;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    float: left;
+    padding: 5% 2%;
+    background-color: rgb(52, 58, 68);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(220, 20, 60), rgba(0, 0, 0, 0));
+}
+
+.scrap-buttons button {
+    background-color: brown;
+    border-color: brown;
+}
+
+.validating-buttons button {
+    background-color: rgb(165, 42, 42);
+    border-color: brown;
+}
+
+.table-result {
+    float: right;
+    width: 80%;
+    padding: 2%;
+}
+
+.table-result .action {
+    text-align: center;
+}
+
+td .btn-delete {
+    background-color: hsl(0, 80%, 60%);
+    border-color: hsl(0, 80%, 60%);
+}
+
+td .btn-done {
+    background-color: hsl(90, 80%, 30%);
+    border-color: hsl(90, 80%, 30%);
+}
+
+td button {
+    margin: 2px;
+}
+
+input {
+    color: darkblue;
+}

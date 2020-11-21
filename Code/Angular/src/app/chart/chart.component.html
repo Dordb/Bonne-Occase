@@ -1,0 +1,162 @@
+<div class="main container-fluid">
+
+    <div class="selectors">
+        <h2>Choix du téléphone :</h2>
+        Marque :
+        <select class="browser-default form-control-sm" [(ngModel)]="selectedBrand" (change)="updateModels()">
+            <option *ngFor=" let brand of brands " ngvalue="brand[ 'Marque']" >
+                {{brand['Marque']}}
+            </option>
+        </select> Modele :
+        <select class="browser-default form-control-sm" [(ngModel)]="selectedModel" (change)="updatePrices()">
+        <option *ngFor="let model of models">{{model['Modele']}}</option>
+        </select>
+    </div>
+
+
+
+    <div class="charts_and_infos row container-fluid">
+
+        <div class="charts col-md-6">
+            <div class="line-price-chart">
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                </canvas>
+            </div>
+            <div class="buyable">
+                <h3>Acheter :</h3>
+                <ul>
+                    <li *ngIf="prices!==undefined">
+                        <a href="https://www.topachat.com" target="blank">TopAchat : {{prices[prices.length-1]['Prix']}} €</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="infos col-xs-6">
+            <!-- <p *ngIf="infos == null" class="alert alert-danger" role="alert">{{InfosError}}</p> -->
+            <table class="table table-hover table-striped table-dark table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Informations</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngIf="infos != null">
+                    <tr>
+                        <th>Device name</th>
+                        <td>{{infos.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Dimensions</th>
+                        <td>{{infos.dimensions}}</td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>{{infos.weight}}</td>
+                    </tr>
+                    <tr>
+                        <th>SIM</th>
+                        <td>{{infos.sim}}</td>
+                    </tr>
+                    <tr>
+                        <th>Size</th>
+                        <td>{{infos.size}}</td>
+                    </tr>
+                    <tr>
+                        <th>Resolution</th>
+                        <td>{{infos.resolution}}</td>
+                    </tr>
+                    <tr>
+                        <th>Card Slot</th>
+                        <td>{{infos.card_slot}}</td>
+                    </tr>
+                    <tr>
+                        <th>WLAN</th>
+                        <td>{{infos.wlan}}</td>
+                    </tr>
+                    <tr>
+                        <th>Bluetooth</th>
+                        <td>{{infos.bluetooth}}</td>
+                    </tr>
+                    <tr>
+                        <th>GPS</th>
+                        <td>{{infos.gps}}</td>
+                    </tr>
+                    <tr>
+                        <th>Battery</th>
+                        <td>{{infos.battery}}</td>
+                    </tr>
+                    <tr>
+                        <th>Autonomie (stand by)</th>
+                        <td>{{infos.stand_by}}</td>
+                    </tr>
+                    <tr>
+                        <th>Autonomie (communication)</th>
+                        <td>{{infos.talk_time}}</td>
+                    </tr>
+                    <tr>
+                        <th>Autonomie (musique)</th>
+                        <td>{{infos.music_play}}</td>
+                    </tr>
+                    <tr>
+                        <th>Colors</th>
+                        <td>{{infos.colors}}</td>
+                    </tr>
+                    <tr>
+                        <th>OS</th>
+                        <td>{{infos.os}}</td>
+                    </tr>
+                    <tr>
+                        <th>Appareil photo principal</th>
+                        <td>{{infos.primary}}</td>
+                    </tr>
+                    <tr>
+                        <th>Appareil photo secondaire</th>
+                        <td>{{infos.secondary}}</td>
+                    </tr>
+                    <tr>
+                        <th>Video</th>
+                        <td>{{infos.video}}</td>
+                    </tr>
+                    <tr>
+                        <th>Chipset</th>
+                        <td>{{infos.chipset}}</td>
+                    </tr>
+                    <tr>
+                        <th>Reseau</th>
+                        <td>{{infos.network_c}}</td>
+                    </tr>
+                    <tr>
+                        <th>NFC</th>
+                        <td>{{infos.nfc}}</td>
+                    </tr>
+                    <tr>
+                        <th>Port Jack</th>
+                        <td>{{infos._3_5mm_jack}}</td>
+                    </tr>
+                    <tr>
+                        <th>2G</th>
+                        <td>{{infos._2g_bands}}</td>
+                    </tr>
+                    <tr>
+                        <th>3G</th>
+                        <td>{{infos._3g_bands}}</td>
+                    </tr>
+                    <tr>
+                        <th>4G</th>
+                        <td>{{infos._4g_bands}}</td>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="infos == null">
+                    <th colspan="2" class="alert alert-warning" role="alert">{{InfosError}}</th>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>

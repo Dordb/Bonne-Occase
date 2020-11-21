@@ -1,0 +1,55 @@
+.selectors {
+    margin: 3%;
+    text-align: center;
+    font-size: large;
+}
+
+.selectors select {
+    background-color: #D1D1D1;
+    color: #000;
+}
+
+.charts_and_infos {
+    width: 100%;
+    overflow: auto;
+}
+
+.charts {
+    float: right;
+    width: 46%;
+    margin-right: 2%;
+    margin-top: 1%;
+}
+
+.line-price-chart {
+    margin-bottom: 4%;
+}
+
+.infos {
+    width: 46%;
+    margin-left: 2%;
+}
+
+.infos table thead th {
+    text-align: center;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.buyable {
+    text-align: center;
+}
+
+.buyable li {
+    list-style-type: none;
+}
+
+.buyable a {
+    text-decoration: none;
+    color: #DBDBDB;
+}
+
+.buyable a:hover {
+    text-decoration: none;
+    color: #85C7F2;
+}

@@ -1,0 +1,8 @@
+* {
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+    background-color: #4C4C4C;
+    width: 100%;
+    text-align: center;
+}

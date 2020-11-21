@@ -1,0 +1,19 @@
+<div class="main">
+    <div class="title text-center">
+        <h1 class="display-4 text-white">
+            Bienvenue sur La Bonne Occase
+        </h1>
+        <h2 class="text-white">
+            Suivez l'évolution des prix de vos téléphones préférés.
+        </h2>
+    </div>
+
+    <div class="charts text-center">
+
+        <div class="number-bar-chart">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" [plugins]="barChartPlugins">
+            </canvas>
+        </div>
+
+    </div>
+</div>

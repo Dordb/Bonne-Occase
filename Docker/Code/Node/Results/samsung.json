@@ -1,0 +1,48 @@
+[{
+    "url": "https://www.samsung.com/fr/smartphones/all-smartphones/",
+    "list": [{
+            "model": "Galaxy S10 Lite",
+            "price": "699,00 €"
+        },
+        {
+            "model": "Galaxy Z Flip Edition Thom Browne",
+            "price": "2 580,00 €"
+        },
+        {
+            "model": "Galaxy S20 Ultra 5G",
+            "price": "1 359,00 €"
+        },
+        {
+            "model": "Galaxy S20 5G",
+            "price": "1 009,00 €"
+        },
+        {
+            "model": "Galaxy S20+",
+            "price": "1 009,00 €"
+        },
+        {
+            "model": "Galaxy S20+ 5G",
+            "price": "1 109,00 €"
+        },
+        {
+            "model": "Galaxy Z Flip",
+            "price": "1 500,00 €"
+        },
+        {
+            "model": "Galaxy S20",
+            "price": "909,00 €"
+        },
+        {
+            "model": "Galaxy A71",
+            "price": "399,00 €"
+        },
+        {
+            "model": "Galaxy Note10 Lite",
+            "price": "609,00 €"
+        },
+        {
+            "model": "Galaxy A51",
+            "price": "299,00 €"
+        }
+    ]
+}]

@@ -1,0 +1,103 @@
+<div class="main">
+
+    <div class="control-panel">
+        <h4>Panneau de configuration :</h4>
+        <hr>
+        <div *ngIf="data == null && !errors" class="scrap-buttons">
+            Lancer des scrapping : <br><br>
+            <button type="button" class="btn btn-primary" (click)="launchScrapping_TopAchat()">Lancer un nouveau scrap TopAchat</button>
+        </div>
+        <div *ngIf="data != null  && !errors" class="validating-buttons">
+            Scrapping effectué ! <br> Validation des résultats <br><br>
+            <button type="button" class="btn btn-primary" (click)="validateScrap()">Valider et envoyer</button>
+        </div>
+        <div *ngIf="errors">
+            {{val_err.length}} erreur(s) trouvés <br><br>
+            <button type="button" class="btn btn-primary" (click)="refresh()">Terminer</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="table-result">
+        <table *ngIf="!errors" datatable [dtTrigger]="dtTrigger" [dtOptions]="dtOptions" class="table table-hover table-sm table-dark">
+            <thead *ngIf="data != null">
+                <tr>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modele</th>
+                    <th scope="col">Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dt of data; let id = index">
+                    <td *ngIf="!editing[id]">{{dt.brand}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="dt.brand" placeholder="{{dt.brand}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{dt.model}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="dt.model" placeholder="{{dt.model}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{dt.price}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="dt.price" placeholder="{{dt.price}}" />
+                    </td>
+                    <td class="action">
+                        <button class="btn btn-primary btn-edit" *ngIf="!editing[id]" (click)="Edit(id)">Edit</button>
+                        <button class="btn btn-primary btn-done" *ngIf="editing[id]" (click)="FinishEdit(id)">Done</button>
+                        <button class="btn btn-primary btn-delete" *ngIf="editing[id]" (click)="Delete(id)">Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <table datatable [dtTrigger]="dtTriggerErr" [dtOptions]="dtOptions" class="table table-hover table-sm table-dark">
+            <thead *ngIf="errors">
+                <tr>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modele</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Erreur</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let err of val_err; let id = index">
+                    <td *ngIf="!editing[id]">{{err.brand}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="err.brand" placeholder="{{err.brand}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{err.model}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="err.model" placeholder="{{err.model}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{err.price}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="err.price" placeholder="{{err.price}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{err.date}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="err.date" placeholder="{{err.date}}" />
+                    </td>
+                    <td *ngIf="!editing[id]">{{err.error}}</td>
+                    <td *ngIf="editing[id]">
+                        <input [(ngModel)]="err.error" placeholder="{{err.error}}" />
+                    </td>
+                    <td class="action">
+                        <button class="btn btn-primary btn-done" (click)="AddPhoneToDB(err.brand,err.model,err.price,id)">Add Phone to Database</button>
+                        <button class="btn btn-primary btn-delete" (click)="DeleteError(id)">Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
